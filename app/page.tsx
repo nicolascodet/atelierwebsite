@@ -14,8 +14,18 @@ import AIArtDemo from '../components/AIArtDemo';
 export default function Home() {
   // Fix scroll issue - ensure page loads at top
   useEffect(() => {
+    // Clear any hash from the URL to prevent automatic scrolling
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname);
+    }
+    
+    // Force scroll to top
     window.scrollTo(0, 0);
-  }, []);
+    
+    // Additional approach to ensure scrolling to top
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  });
 
   return (
     <main className="min-h-screen bg-white">

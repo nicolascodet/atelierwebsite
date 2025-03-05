@@ -94,25 +94,6 @@ const Hero = () => {
               </p>
             </motion.div>
 
-            {/* Logo Showcase */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.25 }}
-              className="flex justify-center lg:justify-start"
-            >
-              <div className="relative w-48 h-48 flex items-center justify-center">
-                <div className="absolute inset-0 bg-blue-50 rounded-full opacity-20"></div>
-                <Image 
-                  src="/images/logo.jpg" 
-                  alt="Atelier Frames Logo" 
-                  width={120} 
-                  height={120} 
-                  className="relative z-10"
-                />
-              </div>
-            </motion.div>
-
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -128,12 +109,6 @@ const Hero = () => {
                 >
                   Back on Kickstarter
                 </a>
-              </motion.div>
-              
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Link href="#how-it-works" className="btn-secondary inline-flex items-center">
-                  Learn More
-                </Link>
               </motion.div>
             </motion.div>
 
