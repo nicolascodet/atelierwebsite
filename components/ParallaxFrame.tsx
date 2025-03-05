@@ -33,9 +33,9 @@ const ParallaxFrame = () => {
   const glowOpacity = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [0.3, 0.7, 0.5, 0.2]);
 
   return (
-    <div ref={ref} className="h-[300vh] relative">
+    <div ref={ref} className="h-[200vh] sm:h-[250vh] md:h-[300vh] relative">
       <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
-        <div className="relative w-full max-w-4xl mx-auto">
+        <div className="relative w-full max-w-4xl mx-auto px-4 sm:px-6">
           {/* Background glow effect */}
           <motion.div 
             className="absolute inset-0 flex items-center justify-center pointer-events-none"
@@ -44,7 +44,7 @@ const ParallaxFrame = () => {
               opacity: glowOpacity,
             }}
           >
-            <div className="w-[90%] h-[90%] rounded-full bg-blue-100 filter blur-3xl opacity-30"></div>
+            <div className="w-[80%] sm:w-[90%] h-[80%] sm:h-[90%] rounded-full bg-blue-100 filter blur-3xl opacity-30"></div>
           </motion.div>
 
           {/* Main frame with enhanced effects */}
@@ -57,7 +57,7 @@ const ParallaxFrame = () => {
             }}
             className="absolute inset-0 flex items-center justify-center"
           >
-            <div className="w-[80%] aspect-[4/3] bg-white rounded-xl shadow-2xl relative overflow-hidden">
+            <div className="w-[90%] sm:w-[85%] md:w-[80%] aspect-[4/3] bg-white rounded-xl shadow-2xl relative overflow-hidden">
               {/* Animated border */}
               <motion.div 
                 className="absolute inset-0 z-0 border-2 rounded-xl"
@@ -77,7 +77,7 @@ const ParallaxFrame = () => {
               />
               
               {/* The image with subtle zoom effect */}
-              <div className="absolute inset-4 rounded-lg flex items-center justify-center overflow-hidden">
+              <div className="absolute inset-2 sm:inset-4 rounded-lg flex items-center justify-center overflow-hidden">
                 <motion.div
                   className="w-full h-full relative"
                   animate={{

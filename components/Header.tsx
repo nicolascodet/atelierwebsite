@@ -132,16 +132,16 @@ const Header = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 pt-20 bg-white"
+            className="fixed inset-0 z-40 pt-20 bg-white overflow-y-auto"
           >
-            <div className="p-4">
-              <nav className="grid gap-y-8">
+            <div className="p-4 pb-20">
+              <nav className="grid gap-y-6">
                 {navItems.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center p-3 -m-3 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
+                    className="flex items-center p-3 -m-3 rounded-md text-lg font-medium text-gray-900 hover:bg-gray-50 active:bg-gray-100"
                   >
                     {item.name}
                   </a>
@@ -153,7 +153,7 @@ const Header = () => {
                   target="_blank" 
                   rel="noopener noreferrer"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full flex items-center justify-center px-4 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-black hover:bg-gray-800"
+                  className="w-full flex items-center justify-center px-4 py-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-black hover:bg-gray-800 active:bg-gray-900"
                 >
                   Back on Kickstarter
                 </a>

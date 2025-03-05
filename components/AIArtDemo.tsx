@@ -135,17 +135,17 @@ export default function AIArtDemo() {
   return (
     <div className="max-w-5xl mx-auto">
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold mb-4">Try it out</h2>
-        <p className="text-lg">Create your perfect art</p>
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4">Try it out</h2>
+        <p className="text-lg text-gray-600">Create your perfect art</p>
       </div>
       
       <div className="grid md:grid-cols-2 gap-8">
-        <div className="bg-white shadow-xl rounded-lg p-6">
-          <h3 className="text-2xl font-semibold mb-4">Style & Prompt</h3>
+        <div className="bg-white shadow-xl rounded-lg p-4 sm:p-6">
+          <h3 className="text-xl sm:text-2xl font-semibold mb-4">Style & Prompt</h3>
           
           <div className="mb-6">
             <label className="block text-sm font-medium mb-2">Select a style</label>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+            <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-2">
               {artStyles.map((style) => (
                 <button
                   key={style.id}
@@ -157,7 +157,7 @@ export default function AIArtDemo() {
                   }`}
                 >
                   <div className="text-sm font-medium">{style.name}</div>
-                  <div className="text-xs text-gray-500">{style.description}</div>
+                  <div className="text-xs text-gray-500 line-clamp-1">{style.description}</div>
                 </button>
               ))}
             </div>
@@ -219,11 +219,11 @@ export default function AIArtDemo() {
           )}
         </div>
         
-        <div>
+        <div className="order-first md:order-last">
           {generatedImage ? (
             <div className="flex justify-center items-center h-full">
               <motion.div 
-                className="relative transform transition-all duration-700"
+                className="relative transform transition-all duration-700 w-full max-w-md"
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ type: "spring", stiffness: 100, damping: 15 }}
@@ -231,9 +231,9 @@ export default function AIArtDemo() {
                 {/* The Atelier Frame */}
                 <div className="relative">
                   {/* Walnut wood frame */}
-                  <div className="bg-gradient-to-br from-[#5d4037] to-[#3e2723] p-[20px] rounded-sm shadow-2xl relative overflow-hidden">
+                  <div className="bg-gradient-to-br from-[#5d4037] to-[#3e2723] p-[12px] sm:p-[20px] rounded-sm shadow-2xl relative overflow-hidden">
                     {/* Inner matting */}
-                    <div className="bg-[#f5f5f0] p-4 shadow-[inset_0_0_5px_rgba(0,0,0,0.2)]">
+                    <div className="bg-[#f5f5f0] p-2 sm:p-4 shadow-[inset_0_0_5px_rgba(0,0,0,0.2)]">
                       {/* Image container - 16:9 aspect ratio */}
                       <div className="relative" style={{ aspectRatio: '16/9' }}>
                         <img

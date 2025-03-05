@@ -68,17 +68,17 @@ const Hero = () => {
         <div className="absolute -bottom-[5%] right-[20%] w-[25%] h-[30%] bg-blue-50 rounded-full blur-3xl opacity-50"></div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16 md:pt-40 md:pb-24 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 md:pt-40 pb-16 md:pb-24 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left side - Copy */}
-          <div className="lg:col-span-5 space-y-8">
+          <div className="lg:col-span-5 space-y-6 sm:space-y-8">
             <motion.div
               style={{ y: titleY }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-semibold tracking-tight leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-semibold tracking-tight leading-tight">
                 Art that evolves with you
               </h1>
             </motion.div>
@@ -89,7 +89,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <p className="text-xl text-gray-600 leading-relaxed">
+              <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
                 The Canvas by Atelier Frames combines the elegance of traditional frames with cutting-edge display technology and AI art generation.
               </p>
             </motion.div>
@@ -100,12 +100,12 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-wrap gap-4"
             >
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
                 <a 
                   href="https://www.kickstarter.com/projects/nicolascodet/the-canvas-by-atelier-frames" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="btn-apple inline-flex items-center"
+                  className="btn-apple inline-flex items-center justify-center w-full sm:w-auto px-6 py-3"
                 >
                   Back on Kickstarter
                 </a>

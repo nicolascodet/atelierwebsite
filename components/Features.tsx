@@ -101,19 +101,19 @@ const Features = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   
   return (
-    <div className="bg-white py-20">
+    <div className="bg-white py-12 sm:py-16 md:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16 max-w-3xl mx-auto"
+          className="text-center mb-12 sm:mb-16 max-w-3xl mx-auto"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-semibold mb-6 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-semibold mb-4 sm:mb-6 tracking-tight">
             Art That Evolves With You
           </h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
+          <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
             Art has always evolved—now it can evolve with you. The Canvas by Atelier Frames brings endless 
             creative possibilities to your space with built-in styles and the ability to create your own art, 
             right from the frame. No rules, no limits—just infinite ways to make your walls come alive.
@@ -126,7 +126,7 @@ const Features = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-100px' }}
-          className="grid md:grid-cols-3 gap-x-8 gap-y-12 mb-24"
+          className="grid sm:grid-cols-2 md:grid-cols-3 gap-x-6 sm:gap-x-8 gap-y-10 sm:gap-y-12 mb-16 sm:mb-24"
         >
           {features.map((feature) => (
             <motion.div
@@ -134,15 +134,15 @@ const Features = () => {
               variants={item}
               className="flex flex-col items-start"
             >
-              <div className="text-blue-600 mb-5">{feature.icon}</div>
-              <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+              <div className="text-blue-600 mb-4 sm:mb-5">{feature.icon}</div>
+              <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">{feature.title}</h3>
+              <p className="text-gray-600 leading-relaxed text-sm sm:text-base">{feature.description}</p>
             </motion.div>
           ))}
         </motion.div>
 
         {/* Creation process section */}
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-24">
+        <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-center mb-16 sm:mb-24">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
