@@ -103,117 +103,207 @@ const Features = () => {
   return (
     <div className="bg-white py-12 sm:py-16 md:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Main heading section - improved spacing for mobile */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 sm:mb-16 max-w-3xl mx-auto"
+          className="text-center mb-10 sm:mb-16 max-w-3xl mx-auto"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-semibold mb-4 sm:mb-6 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-semibold mb-4 sm:mb-6 tracking-tight">
             Art That Evolves With You
           </h2>
-          <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+          <p className="text-base sm:text-lg text-gray-600 leading-relaxed px-0 sm:px-4">
             Art has always evolved—now it can evolve with you. The Canvas by Atelier Frames brings endless 
             creative possibilities to your space with built-in styles and the ability to create your own art, 
-            right from the frame. No rules, no limits—just infinite ways to make your walls come alive.
+            right from the frame.
           </p>
         </motion.div>
 
-        {/* Main features */}
+        {/* Main features - mobile cards with improved spacing */}
         <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-100px' }}
-          className="grid sm:grid-cols-2 md:grid-cols-3 gap-x-6 sm:gap-x-8 gap-y-10 sm:gap-y-12 mb-16 sm:mb-24"
+          className="mb-16 sm:mb-24"
         >
-          {features.map((feature) => (
-            <motion.div
-              key={feature.id}
-              variants={item}
-              className="flex flex-col items-start"
-            >
-              <div className="text-blue-600 mb-4 sm:mb-5">{feature.icon}</div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">{feature.title}</h3>
-              <p className="text-gray-600 leading-relaxed text-sm sm:text-base">{feature.description}</p>
-            </motion.div>
-          ))}
+          {/* Mobile-specific feature layout (vertical cards) */}
+          <div className="md:hidden space-y-6">
+            {features.map((feature) => (
+              <motion.div
+                key={feature.id}
+                variants={item}
+                className="bg-white rounded-xl p-5 shadow-sm border border-gray-100"
+              >
+                <div className="flex items-start">
+                  <div className="text-blue-600 mr-4 mt-1">{feature.icon}</div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          
+          {/* Desktop-specific feature layout (grid) */}
+          <div className="hidden md:grid md:grid-cols-3 gap-x-8 gap-y-12">
+            {features.map((feature) => (
+              <motion.div
+                key={feature.id}
+                variants={item}
+                className="flex flex-col items-start"
+              >
+                <div className="text-blue-600 mb-5">{feature.icon}</div>
+                <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
-        {/* Creation process section */}
-        <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-center mb-16 sm:mb-24">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.6 }}
-          >
-            <h3 className="text-2xl sm:text-3xl font-display font-semibold mb-5 tracking-tight">How It Works</h3>
-            <ul className="space-y-6">
-              <li className="flex items-start">
-                <div className="flex-shrink-0 h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1">
-                  <span className="font-medium text-blue-600">1</span>
+        {/* Creation process section - improved for mobile */}
+        <div className="mb-16 sm:mb-24">
+          {/* Mobile: vertical layout first, then process circles */}
+          <div className="md:hidden">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.6 }}
+              className="mb-8"
+            >
+              <h3 className="text-2xl font-display font-semibold mb-4 tracking-tight text-center">
+                How It Works
+              </h3>
+              
+              <motion.div
+                ref={ref}
+                className="relative aspect-[16/9] rounded-xl overflow-hidden shadow-lg mb-8"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <Image
+                  src="/images/test.jpg"
+                  alt="Museum-grade display technology"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                  <h4 className="text-lg font-semibold mb-1">Museum-Grade Technology</h4>
+                  <p className="text-xs opacity-90">
+                    Anti-glare coating and ambient light sensing for perfect viewing
+                  </p>
                 </div>
-                <div>
-                  <h4 className="text-lg font-medium mb-1">Enter your prompt</h4>
-                  <p className="text-gray-600">Describe what you want to see through our simple app</p>
-                </div>
-              </li>
-              <li className="flex items-start">
-                <div className="flex-shrink-0 h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1">
-                  <span className="font-medium text-blue-600">2</span>
-                </div>
-                <div>
-                  <h4 className="text-lg font-medium mb-1">Select your style</h4>
-                  <p className="text-gray-600">Choose from our curated collection of artistic styles</p>
-                </div>
-              </li>
-              <li className="flex items-start">
-                <div className="flex-shrink-0 h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1">
-                  <span className="font-medium text-blue-600">3</span>
-                </div>
-                <div>
-                  <h4 className="text-lg font-medium mb-1">Generate your artwork</h4>
-                  <p className="text-gray-600">Watch as AI generates your unique artwork in moments</p>
-                </div>
-              </li>
-              <li className="flex items-start">
-                <div className="flex-shrink-0 h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1">
-                  <span className="font-medium text-blue-600">4</span>
-                </div>
-                <div>
-                  <h4 className="text-lg font-medium mb-1">Display instantly</h4>
-                  <p className="text-gray-600">See your creation appear on your frame immediately</p>
-                </div>
-              </li>
+              </motion.div>
+            </motion.div>
+            
+            <ul className="space-y-6 px-2">
+              {[
+                {step: 1, title: "Enter your prompt", desc: "Describe what you want to see through our simple app"},
+                {step: 2, title: "Select your style", desc: "Choose from our curated collection of artistic styles"},
+                {step: 3, title: "Generate your artwork", desc: "Watch as AI generates your unique artwork in moments"},
+                {step: 4, title: "Display instantly", desc: "See your creation appear on your frame immediately"}
+              ].map((item) => (
+                <motion.li 
+                  key={item.step}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: item.step * 0.1 }}
+                  className="flex items-start"
+                >
+                  <div className="flex-shrink-0 h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1">
+                    <span className="font-medium text-blue-600">{item.step}</span>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-medium mb-1">{item.title}</h4>
+                    <p className="text-gray-600 text-sm">{item.desc}</p>
+                  </div>
+                </motion.li>
+              ))}
             </ul>
-          </motion.div>
-          <motion.div
-            ref={ref}
-            className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-2xl"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <Image
-              src="/images/test.jpg"
-              alt="Museum-grade display technology"
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-              <h4 className="text-xl font-semibold mb-2">Museum-Grade Technology</h4>
-              <p className="text-sm opacity-90">
-                Ultra-thin profile with anti-glare coating and ambient light sensing for the perfect viewing experience
-              </p>
-            </div>
-          </motion.div>
+          </div>
+          
+          {/* Desktop: two-column layout */}
+          <div className="hidden md:grid md:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.6 }}
+            >
+              <h3 className="text-3xl font-display font-semibold mb-5 tracking-tight">How It Works</h3>
+              <ul className="space-y-6">
+                <li className="flex items-start">
+                  <div className="flex-shrink-0 h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1">
+                    <span className="font-medium text-blue-600">1</span>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-medium mb-1">Enter your prompt</h4>
+                    <p className="text-gray-600">Describe what you want to see through our simple app</p>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <div className="flex-shrink-0 h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1">
+                    <span className="font-medium text-blue-600">2</span>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-medium mb-1">Select your style</h4>
+                    <p className="text-gray-600">Choose from our curated collection of artistic styles</p>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <div className="flex-shrink-0 h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1">
+                    <span className="font-medium text-blue-600">3</span>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-medium mb-1">Generate your artwork</h4>
+                    <p className="text-gray-600">Watch as AI generates your unique artwork in moments</p>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <div className="flex-shrink-0 h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-1">
+                    <span className="font-medium text-blue-600">4</span>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-medium mb-1">Display instantly</h4>
+                    <p className="text-gray-600">See your creation appear on your frame immediately</p>
+                  </div>
+                </li>
+              </ul>
+            </motion.div>
+            <motion.div
+              ref={ref}
+              className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-2xl"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <Image
+                src="/images/test.jpg"
+                alt="Museum-grade display technology"
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h4 className="text-xl font-semibold mb-2">Museum-Grade Technology</h4>
+                <p className="text-sm opacity-90">
+                  Ultra-thin profile with anti-glare coating and ambient light sensing for the perfect viewing experience
+                </p>
+              </div>
+            </motion.div>
+          </div>
         </div>
 
-        {/* Style library section */}
+        {/* Style library section - mobile grid improvements */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -221,28 +311,29 @@ const Features = () => {
           transition={{ duration: 0.7 }}
           className="text-center"
         >
-          <h3 className="text-2xl sm:text-3xl font-display font-semibold mb-6 tracking-tight">Our Style Library</h3>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-10">
+          <h3 className="text-2xl sm:text-3xl font-display font-semibold mb-4 sm:mb-6 tracking-tight">Our Style Library</h3>
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto mb-8 sm:mb-10 px-1 sm:px-4">
             We've handpicked and refined a sophisticated collection of artistic styles to ensure 
             every creation meets museum-grade standards.
           </p>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+          {/* Mobile-specific style grid */}
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4 lg:grid-cols-5">
             {artStyles.map((style, index) => (
               <motion.div
                 key={style.name}
                 className="aspect-square relative rounded-lg overflow-hidden group cursor-pointer"
                 whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}  // Better touch feedback
                 transition={{ duration: 0.3 }}
               >
                 <div className={`absolute inset-0 ${style.color} opacity-90`}></div>
                 <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/60"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <h4 className="text-white font-medium text-center px-2">{style.name}</h4>
+                <div className="absolute inset-0 flex items-center justify-center p-2">
+                  <h4 className="text-white font-medium text-center text-sm sm:text-base">{style.name}</h4>
                 </div>
               </motion.div>
             ))}
-  
           </div>
         </motion.div>
       </div>
