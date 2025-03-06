@@ -3,7 +3,6 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
-import { FiClock, FiLayers, FiImage, FiRefreshCw, FiSmartphone, FiZap } from 'react-icons/fi';
 
 // Animation variants
 const container = {
@@ -28,37 +27,37 @@ const features = [
     id: 1,
     title: "AI-Generated Art",
     description: "Create unique artwork with our advanced AI system trained on millions of images",
-    icon: <FiImage className="w-6 h-6" />,
+    icon: <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>,
   },
   {
     id: 2,
     title: "Unlimited Styles",
     description: "Choose from dozens of artistic styles or create your own custom look",
-    icon: <FiLayers className="w-6 h-6" />,
+    icon: <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5"></path></svg>,
   },
   {
     id: 3,
     title: "Instant Generation",
     description: "Generate new artwork in seconds and see it instantly on your frame",
-    icon: <FiClock className="w-6 h-6" />,
+    icon: <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 8v4m0 4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path></svg>,
   },
   {
     id: 4,
     title: "Regular Updates",
     description: "New styles and features added regularly through automatic updates",
-    icon: <FiRefreshCw className="w-6 h-6" />,
+    icon: <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>,
   },
   {
     id: 5,
     title: "Mobile Control",
     description: "Control your frame from anywhere using our intuitive mobile app",
-    icon: <FiSmartphone className="w-6 h-6" />,
+    icon: <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h5a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"></path><path d="M9 5v2m3-2v2"></path></svg>,
   },
   {
     id: 6,
     title: "Energy Efficient",
     description: "Advanced display technology that conserves energy when not being viewed",
-    icon: <FiZap className="w-6 h-6" />,
+    icon: <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>,
   },
 ];
 
